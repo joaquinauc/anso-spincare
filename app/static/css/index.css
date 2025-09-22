@@ -43,3 +43,11 @@ input {
     border-radius: 5px;
     padding: 5px 130px;
 }
+
+.login-button:active {
+    background-color: #b0d2e1;
+}
+
+.login-button:hover {
+    cursor: pointer;
+}
