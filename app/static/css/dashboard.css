@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+button {
+    background-color: #C1E5F5;
+    color: #357DA2;
+    border-color: #94D1EC;
+    border-style: solid;
+    border-radius: 5px;
+    padding: 5px;
+    width: 200px;
+}
+
+button:active {
+    background-color: #b0d2e1;
+}
+
+button:hover {
+    cursor: pointer;
+}
