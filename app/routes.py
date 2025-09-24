@@ -23,9 +23,15 @@ def login():
     role = user.role
 
     login_user(user)
-    session['role'] = user.role
+    session['role'] = role
 
     if form.validate_on_submit():
         return jsonify({'success': True, 'redirect': url_for('dashboard')})
     
     return jsonify({'success': False, 'errors': form.errors})
+
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    return jsonify({'redirect': url_for('index')})
