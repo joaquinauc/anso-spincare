@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         buttonsContainer.insertBefore(addUserButton, buttonsContainer.firstChild)
 
         addUserButton.addEventListener('click', () => {
-            window.location.href = '../../templates/add_user.html';
+            window.location.href = '/add_user';
         });
     }
 });
