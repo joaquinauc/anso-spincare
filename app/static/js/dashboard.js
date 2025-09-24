@@ -16,5 +16,10 @@ document.addEventListener('DOMContentLoaded', async function () {
         addUserButton.textContent = 'Dar de alta a usuario';
 
         buttonsContainer.insertBefore(addUserButton, buttonsContainer.firstChild)
+
+        addUserButton.addEventListener('click', () => {
+            window.location.href = '../../templates/add_user.html';
+        });
     }
 });
+
