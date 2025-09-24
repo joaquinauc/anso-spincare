@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
     formData.append('csrf_token', document.querySelector('[name=csrf_token]').value);
 
     try {
-      const response = await fetch("/login", {
+      const response = await fetch("/api/login", {
         method: "POST",
         body: formData,
         headers: {
