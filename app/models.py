@@ -9,7 +9,7 @@ from app import db, login
 
 class User(UserMixin, db.Model):
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
-    password_hash: so.Mapped[str] = so.mapped_column(sa.String(32))
+    password_hash: so.Mapped[str] = so.mapped_column(sa.String(32), unique=True)
     names: so.Mapped[str] = so.mapped_column(sa.String(64), index=True)
     first_last_name: so.Mapped[str] = so.mapped_column(sa.String(32), index=True)
     second_last_name: so.Mapped[Optional[str]] = so.mapped_column(sa.String(32), index=True)
