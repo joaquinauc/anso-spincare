@@ -8,6 +8,18 @@ import sqlalchemy as sa
 
 from urllib.parse import urlsplit
 
+def require_role(role):
+    def decorator(f):
+        @wraps(f)
+        def wrapper(*args, **kwargs):
+            if session.get('role') != role:
+                print(session.get('role'))
+                return jsonify({'error': 'No autorizado'}), 403
+            return f(*args, **kwargs)
+        return wrapper
+    return decorator
+
+
 @app.route('/')
 @app.route('/index')
 def index():
