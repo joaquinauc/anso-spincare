@@ -37,7 +37,6 @@ button:hover {
 #alta-usuario {
     background-color: #357DA2;
     color: #C1E5F5;
-    display: none;
 }
 
 #alta-usuario:active {
