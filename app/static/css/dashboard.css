@@ -33,3 +33,13 @@ button:active {
 button:hover {
     cursor: pointer;
 }
+
+#alta-usuario {
+    background-color: #357DA2;
+    color: #C1E5F5;
+    display: none;
+}
+
+#alta-usuario:active {
+    background-color: #265b75;
+}
