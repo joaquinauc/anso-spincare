@@ -13,6 +13,7 @@ class User(UserMixin, db.Model):
     names: so.Mapped[str] = so.mapped_column(sa.String(64), index=True)
     first_last_name: so.Mapped[str] = so.mapped_column(sa.String(32), index=True)
     second_last_name: so.Mapped[Optional[str]] = so.mapped_column(sa.String(32), index=True)
+    role: so.Mapped[str] = so.mapped_column(sa.String(32))
     
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
