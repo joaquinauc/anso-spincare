@@ -44,3 +44,9 @@ def logout():
 @login_required
 def dashboard():
     return render_template('dashboard.html')
+
+
+@app.route('/api/get_role')
+@login_required
+def get_role():
+    return jsonify({'role': current_user.role})
