@@ -33,7 +33,7 @@ def dashboard():
     return render_template('dashboard.html')
 
 @app.route('/add_user')
-@login_required
+@require_role('admin')
 def add_user():
     return render_template('add_user.html')
 
