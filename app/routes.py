@@ -15,6 +15,17 @@ def index():
     return render_template('index.html', form=form)
 
 
+@app.route('/dashboard')
+@login_required
+def dashboard():
+    return render_template('dashboard.html')
+
+@app.route('/add_user')
+@login_required
+def add_user():
+    return render_template('add_user.html')
+
+
 @app.route('/api/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
@@ -38,12 +49,6 @@ def login():
 def logout():
     logout_user()
     return jsonify({'redirect': url_for('index')})
-
-
-@app.route('/dashboard')
-@login_required
-def dashboard():
-    return render_template('dashboard.html')
 
 
 @app.route('/api/get_role')
