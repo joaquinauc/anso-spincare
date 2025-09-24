@@ -15,19 +15,22 @@ def index():
     return render_template('index.html', form=form)
 
 
-@app.route('/login', methods={'POST'})
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
 
-    user = db.first_or_404(sa.select(User).where(User.password_hash == form.password.data))
-    role = user.role
-
-    login_user(user)
-    session['role'] = role
-
     if form.validate_on_submit():
+        user = db.session.execute(
+            sa.select(User).where(User.password_hash == form.password.data)
+        ).scalar_one_or_none()
+
+        if user is None:
+            return jsonify({'success': False, 'errors': {'user': ['Usuario no encontrado']}})
+
+        login_user(user)
+        session['role'] = user.role
+
         return jsonify({'success': True, 'redirect': url_for('dashboard')})
-    
     return jsonify({'success': False, 'errors': form.errors})
 
 
