@@ -10,3 +10,12 @@ from app.models import User
 
 class LoginForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
+
+
+class AddUserForm(FlaskForm):
+    names = StringField('Names', validators=[DataRequired()])
+    first_last_name = StringField('First Last Name', validators=[DataRequired()])
+    second_last_name = StringField('Second Last Name')
+    password = PasswordField('Password', validators=[DataRequired()])
+    role = StringField('Role', validators=[DataRequired()])
+    
