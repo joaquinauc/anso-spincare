@@ -12,6 +12,11 @@ header {
   margin-bottom: 60px;
 }
 
+img {
+    width: 25%;
+    height: 25%;
+}
+
 #main-container {
   display: flex;
   flex-direction: column;
