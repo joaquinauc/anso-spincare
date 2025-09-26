@@ -1,5 +1,6 @@
 const userInfoContainer = document.querySelector('#user-info-container');
 const editButton = document.querySelector('.edit-button');
+const closeModalButton = document.querySelector('.close');
 const addUserModal = document.querySelector('.modal-user');
 
 const USER_INFO_LABELS = ['Nombres:', 'Apellido Paterno:', 'Apellido Materno (Opcional):', 'Contraseña:', 'Rol'];
@@ -19,8 +20,18 @@ for (let i = 0; i < USER_INFO_DATA_ID.length; i++) {
     userInfoContainer.appendChild(userInfoSubContainer);
 }
 
+// ABRIR MODAL
 editButton.addEventListener('click', () => {
     addUserModal.setAttribute('style', 'display: flex;');
 });
 
+// CERRAR MODAL
+closeModalButton.addEventListener('click', () => {
+    addUserModal.setAttribute('style', 'display: none;');
+});
 
+window.addEventListener('click', event => {
+    if (event.target.matches('.modal-user') && !event.target.closest('.modal-user-content')) {
+        addUserModal.setAttribute('style', 'display: none;');
+    }
+});
