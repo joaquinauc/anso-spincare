@@ -3,7 +3,7 @@ function mostrarErrorCredenciales() {
   const mensajeElement = document.querySelector("#credentialsModalMsg");
   const cerrarBtn = document.querySelector("#credentialsModalCloseBtn");
 
-  mensajeElement.textContent = "Contraseña o Número de Usuario incorrecto.";
+  mensajeElement.textContent = "Contraseña incorrecta.";
   modal.style.display = "block";
 
   // Evento para cerrar el modal
