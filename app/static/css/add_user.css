@@ -84,6 +84,11 @@ p {
   gap: 25px;
 }
 
+.user-info-subcontainer {
+    display: flex;
+    gap: 10px;
+}
+
 /* Modal para dal de alta a usuario */
 
 .modal-user {
