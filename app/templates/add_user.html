@@ -61,7 +61,11 @@
 
             <div class="form-group">
               <label for="user_role">Rol:</label>
-              <select name="user_role" id="user_role"></select>
+              <select name="user_role" id="user_role">
+                <option value="">Selecciona una opción...</option>
+                <option value="admin">Admin</option>
+                <option value="normal">Usuario normal</option>
+              </select>
             </div>
 
             <button id="saveFormDataBtn">Guardar</button>
