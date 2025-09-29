@@ -9,6 +9,7 @@ const USER_INFO_DATA_ID = ['user-show-name', 'user-show-first-last-name', 'user-
 
 for (let i = 0; i < USER_INFO_DATA_ID.length; i++) {
     const userInfoSubContainer = document.createElement('div');
+    userInfoSubContainer.setAttribute('class', 'user-info-subcontainer');
 
     const userInfoLabel = document.createElement('label');
     userInfoLabel.setAttribute('class', 'user-info-label');
