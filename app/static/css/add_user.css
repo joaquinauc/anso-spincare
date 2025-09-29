@@ -57,6 +57,7 @@ p {
 
 #saveFormDataBtn {
     justify-self: end;
+    padding: 5px;
 }
 
 .user-info-label {
