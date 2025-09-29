@@ -70,6 +70,11 @@ p {
   gap: 20px;
 }
 
+#main-subcontainer {
+    display: flex;
+    flex-direction: column;
+}
+
 #edit-btn-container {
   display: flex;
   gap: 10px;
@@ -87,6 +92,10 @@ p {
 .user-info-subcontainer {
     display: flex;
     gap: 10px;
+}
+
+#addUserBtn {
+    align-self: flex-end;
 }
 
 /* Modal para dal de alta a usuario */
