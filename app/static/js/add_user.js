@@ -41,11 +41,11 @@ window.addEventListener('click', event => {
 });
 
 // VARIABLES DE LOS DATOS QUE SE VEN FUERA DEL MODAL
-    const infoName = document.querySelector('#user-show-name');
-    const infoFirstLastName = document.querySelector('#user-show-first-last-name');
-    const infoSecondLastName = document.querySelector('#user-show-second-last-name');
-    const infoPassword = document.querySelector('#user-show-password');
-    const infoRole = document.querySelector('#user-show-role');
+const infoName = document.querySelector('#user-show-name');
+const infoFirstLastName = document.querySelector('#user-show-first-last-name');
+const infoSecondLastName = document.querySelector('#user-show-second-last-name');
+const infoPassword = document.querySelector('#user-show-password');
+const infoRole = document.querySelector('#user-show-role');
 
 // GUARDAR INFO DEL MODAL
 saveFormDataButton.addEventListener('click', () => {
@@ -62,44 +62,46 @@ saveFormDataButton.addEventListener('click', () => {
     infoSecondLastName.textContent = secondLastNameInput.value;
     infoPassword.textContent = passwordInput.value;
     infoRole.textContent = roleInput.value;
+
+    // CERRAR MODAL
+    addUserModal.setAttribute('style', 'display: none;');
 });
 
 addUserButton.addEventListener("click", async function (e) {
-  e.preventDefault();
+    e.preventDefault();
 
-  const formData = new FormData();
-  formData.append('user_name', infoName.textContent);
-  formData.append('user_first_last_name', infoFirstLastName.textContent);
-  formData.append('user_second_last_name', infoSecondLastName.textContent);
-  formData.append('user_password', infoPassword.textContent);
-  formData.append('user_role', infoRole.textContent);
-  // Necesita el CSRF TOKEN para que funcione el forms de Flask y pueda hacer la validación
-  formData.append(
-    'csrf_token',
-    document.querySelector('[name=csrf_token]').value
-  );
+    const formData = new FormData();
+    formData.append('user_name', infoName.textContent);
+    formData.append('user_first_last_name', infoFirstLastName.textContent);
+    formData.append('user_second_last_name', infoSecondLastName.textContent);
+    formData.append('user_password', infoPassword.textContent);
+    formData.append('user_role', infoRole.textContent);
+    // Necesita el CSRF TOKEN para que funcione el forms de Flask y pueda hacer la validación
+    formData.append(
+        'csrf_token',
+        document.querySelector('[name=csrf_token]').value
+    );
 
-  try {
-    const response = await fetch('/api/add_user', {
-      method: 'POST',
-      body: formData,
-      headers: {
-        'Cache-Control': 'no-store', // Evita caché en la petición
-      },
-    });
+    try {
+        const response = await fetch('/api/add_user', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Cache-Control': 'no-store', // Evita caché en la petición
+            },
+        });
 
-    const result = await response.json();
-    console.log(result);
+        const result = await response.json();
+        console.log(result);
 
-    if (result.success) {
-      // 3. Redirección que no deja historial
-      window.location.replace(result.redirect);
-    } else {
-      alert('Algo salió mal.');
+        if (result.success) {
+            // 3. Redirección que no deja historial
+            window.location.replace(result.redirect);
+        } else {
+            alert('Algo salió mal.');
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Error al conectar con el servidor");
     }
-  } catch (error) {
-    console.error("Error:", error);
-    alert("Error al conectar con el servidor");
-  }
 });
-  
