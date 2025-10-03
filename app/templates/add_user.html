@@ -32,6 +32,7 @@
         <div class="modal-user-content">
           <span class="close">&times;</span>
           <form id="add-user-form">
+            {{ form.hidden_tag() }}
             <div class="form-group">
               <label for="user_name">Nombre(s):</label>
               <input type="text" id="user-name" name="user_name" />
