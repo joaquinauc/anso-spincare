@@ -76,10 +76,7 @@ def get_role():
 def add_user_api():
     form = AddUserForm()
 
-    print(form.names.data)
-
     if form.validate_on_submit():
-        print('poop')
         user = User(
             names=form.names.data, 
             first_last_name=form.first_last_name.data, 
