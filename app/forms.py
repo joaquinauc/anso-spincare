@@ -13,9 +13,9 @@ class LoginForm(FlaskForm):
 
 
 class AddUserForm(FlaskForm):
-    names = StringField('Names', validators=[DataRequired()])
-    first_last_name = StringField('First Last Name', validators=[DataRequired()])
-    second_last_name = StringField('Second Last Name')
-    password = PasswordField('Password', validators=[DataRequired()])
-    role = StringField('Role', validators=[DataRequired()])
+    user_name = StringField('Names', validators=[DataRequired()])
+    user_first_last_name = StringField('First Last Name', validators=[DataRequired()])
+    user_second_last_name = StringField('Second Last Name')
+    user_password = PasswordField('Password', validators=[DataRequired()])
+    user_role = StringField('Role', validators=[DataRequired()])
     

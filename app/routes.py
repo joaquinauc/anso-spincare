@@ -78,10 +78,10 @@ def add_user_api():
 
     if form.validate_on_submit():
         user = User(
-            names=form.names.data, 
-            first_last_name=form.first_last_name.data, 
-            second_last_name=form.second_last_name.data, 
-            role=form.role.data
+            names=form.user_name.data, 
+            first_last_name=form.user_first_last_name.data, 
+            second_last_name=form.user_second_last_name.data, 
+            role=form.user_role.data
             )
         user.set_password(form.password.data)
         db.session.add(user)
