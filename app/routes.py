@@ -83,7 +83,7 @@ def add_user_api():
             second_last_name=form.user_second_last_name.data, 
             role=form.user_role.data
             )
-        user.set_password(form.password.data)
+        user.set_password(form.user_password.data)
         db.session.add(user)
         db.session.commit()
 
