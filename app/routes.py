@@ -2,7 +2,7 @@ from flask import send_from_directory, request, jsonify, render_template, url_fo
 from flask_login import current_user, login_user, logout_user, login_required
 from app import app, db
 from app.models import User
-from app.forms import LoginForm
+from app.forms import LoginForm, AddUserForm
 from functools import wraps
 import sqlalchemy as sa
 
@@ -35,7 +35,8 @@ def dashboard():
 @app.route('/add_user')
 @require_role('admin')
 def add_user():
-    return render_template('add_user.html')
+    form = AddUserForm()
+    return render_template('add_user.html', form=form)
 
 
 @app.route('/api/login', methods=['GET', 'POST'])
@@ -58,6 +59,7 @@ def login():
 
 
 @app.route('/api/logout')
+@login_required
 def logout():
     logout_user()
     return jsonify({'redirect': url_for('index')})
@@ -67,3 +69,26 @@ def logout():
 @login_required
 def get_role():
     return jsonify({'role': current_user.role})
+
+
+@app.route('/api/add_user', methods=['GET', 'POST'])
+@require_role('admin')
+def add_user_api():
+    form = AddUserForm()
+
+    print(form.names.data)
+
+    if form.validate_on_submit():
+        print('poop')
+        user = User(
+            names=form.names.data, 
+            first_last_name=form.first_last_name.data, 
+            second_last_name=form.second_last_name.data, 
+            role=form.role.data
+            )
+        user.set_password(form.password.data)
+        db.session.add(user)
+        db.session.commit()
+
+        return jsonify({'success': True, 'redirect': url_for('dashboard')})
+    return jsonify({'success': False, 'errors': form.errors})
