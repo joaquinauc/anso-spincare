@@ -1,3 +1,6 @@
+const buttonsContainer = document.querySelector('.buttons-container');
+const addPatientButton = document.querySelector('#alta-paciente')
+
 document.addEventListener('DOMContentLoaded', async function () {
     const response = await fetch('/api/get_role', {
         method: 'GET',
@@ -9,7 +12,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     result = await response.json();
     
     if (result.role === 'admin') {
-        const buttonsContainer = document.querySelector('.buttons-container');
         const addUserButton = document.createElement('button');
 
         addUserButton.setAttribute('id', 'alta-usuario');
@@ -23,3 +25,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
 });
 
+addPatientButton.addEventListener('click', () => {
+    window.location.href = '/add_patient';
+});
