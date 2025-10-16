@@ -1,4 +1,7 @@
 const patientInfoContainer = document.querySelector('#patient-info-container');
+const editButton = document.querySelector('.edit-button');
+const closeModalButton = document.querySelector('.close');
+const addPatientModal = document.querySelector('.modal-patient');
 
 const PATIENT_INFO_LABELS = ['Nombre Completo:', 'Edad:', 'Sexo:', 'Teléfono:', 'Padecimiento:', 'Medicamentos:', 'Expediente No.:', 'Alergias:'];
 const PATIENT_INFO_DATA_ID = ['patient-show-name', 'patient-show-age', 'patient-show-phone', 'patient-show-illness', 'patient-show-medicine', 'patient-show-expedient-number', 'patient-show-allergies']
@@ -18,3 +21,20 @@ for (let i = 0; i < PATIENT_INFO_DATA_ID.length; i++) {
     patientInfoSubContainer.appendChild(patientInfoData);
     patientInfoContainer.appendChild(patientInfoSubContainer);
 }
+
+// ABRIR MODAL
+editButton.addEventListener('click', () => {
+    addPatientModal.setAttribute('style', 'display: flex;');
+});
+
+// CERRAR MODAL
+closeModalButton.addEventListener('click', () => {
+    addPatientModal.setAttribute('style', 'display: none;');
+});
+
+window.addEventListener('click', event => {
+    if (event.target.matches('.modal-patient') && !event.target.closest('.modal-patient-content')) {
+        addPatientModal.setAttribute('style', 'display: none;');
+    }
+});
+
