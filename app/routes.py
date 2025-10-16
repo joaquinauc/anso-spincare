@@ -89,3 +89,7 @@ def add_user_api():
 
         return jsonify({'success': True, 'redirect': url_for('dashboard')})
     return jsonify({'success': False, 'errors': form.errors})
+
+@app.route('/add_patient', methods=['GET', 'POST'])
+def add_patient():
+    return render_template('add_patient.html')
