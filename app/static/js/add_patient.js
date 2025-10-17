@@ -2,9 +2,12 @@ const patientInfoContainer = document.querySelector('#patient-info-container');
 const editButton = document.querySelector('.edit-button');
 const closeModalButton = document.querySelector('.close');
 const addPatientModal = document.querySelector('.modal-patient');
+const saveFormDataButton = document.querySelector('#saveFormDataBtn');
+const addPatientButton = document.querySelector('#addPatientBtn');
+
 
 const PATIENT_INFO_LABELS = ['Nombre Completo:', 'Edad:', 'Sexo:', 'Teléfono:', 'Padecimiento:', 'Medicamentos:', 'Expediente No.:', 'Alergias:'];
-const PATIENT_INFO_DATA_ID = ['patient-show-name', 'patient-show-age', 'patient-show-phone', 'patient-show-illness', 'patient-show-medicine', 'patient-show-expedient-number', 'patient-show-allergies']
+const PATIENT_INFO_DATA_ID = ['patient-show-name', 'patient-show-age', 'patient-show-sex', 'patient-show-phone', 'patient-show-illness', 'patient-show-medicine', 'patient-show-expedient', 'patient-show-allergies']
 
 for (let i = 0; i < PATIENT_INFO_DATA_ID.length; i++) {
     const patientInfoSubContainer = document.createElement('div');
@@ -54,11 +57,11 @@ saveFormDataButton.addEventListener('click', () => {
     const nameInput = document.querySelector('#patient-name');
     const ageInput = document.querySelector('#patient-age');
     const sexInput = document.querySelector('#patient_sex');
-    const phoneInput = document.querySelector('#patient-phone');
+    const phoneInput = document.querySelector('#patient-phone-number');
     const illnessInput = document.querySelector('#patient-illness');
     const medicineInput = document.querySelector('#patient-medicine');
     const expedientInput = document.querySelector('#patient-expedient-number');
-    const allergiesInput = document.querySelector('#patient-allergies');
+    const allergiesInput = document.querySelector('#patient_allergies');
 
     // PASAR LOS DATOS DEL LOS INPUT DEL MODAL A LA INFORMACIÓN FUERA DEL MODAL
     infoName.textContent = nameInput.value;
