@@ -21,12 +21,12 @@ class AddUserForm(FlaskForm):
 
 
 class AddPatientForm(FlaskForm):
-    user_name = StringField('Name', validators=[DataRequired()])
-    user_age = IntegerField('Age', validators=[DataRequired()])
-    user_sex = StringField('Sex', validators=[DataRequired()])
-    user_phone_number = IntegerField('Phone Number', validators=[DataRequired()])
-    user_illness = StringField('Illness', validators=[DataRequired()])
-    user_medicine = StringField('Medicine', validators=[DataRequired()])
-    user_expedient_number = IntegerField('Expedient Number', validators=[DataRequired()])
-    user_allergies = StringField('Allergies', validators=[DataRequired()])
+    patient_name = StringField('Name', validators=[DataRequired()])
+    patient_age = IntegerField('Age', validators=[DataRequired()])
+    patient_sex = StringField('Sex', validators=[DataRequired()])
+    patient_phone_number = IntegerField('Phone Number', validators=[DataRequired()])
+    patient_illness = StringField('Illness', validators=[DataRequired()])
+    patient_medicine = StringField('Medicine', validators=[DataRequired()])
+    patient_expedient_number = IntegerField('Expedient Number', validators=[DataRequired()])
+    patient_allergies = StringField('Allergies', validators=[DataRequired()])
     
