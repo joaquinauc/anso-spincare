@@ -109,7 +109,7 @@ def add_patient_api():
             phone_number=form.patient_phone_number.data,
             illness=form.patient_illness.data,
             medicine=form.patient_medicine.data,
-            expedient_number=form.patient_expedient_number,
+            expedient_number=form.patient_expedient_number.data,
             allergies=form.patient_allergies.data
             )
         db.session.add(patient)
