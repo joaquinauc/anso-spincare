@@ -44,8 +44,32 @@ const infoAge = document.querySelector('#patient-show-age');
 const infoSex = document.querySelector('#patient-show-sex');
 const infoPhone = document.querySelector('#patient-show-phone');
 const infoIllness = document.querySelector('#patient-show-illness');
-const infoMedicine = document.querySelector('#patient-show-illness');
-const infoExpedient = document.querySelector('#patient-show-illness');
-const infoAllergies = document.querySelector('#patient-show-illness');
+const infoMedicine = document.querySelector('#patient-show-medicine');
+const infoExpedient = document.querySelector('#patient-show-expedient');
+const infoAllergies = document.querySelector('#patient-show-allergies');
 
+// GUARDAR INFO DEL MODAL
+saveFormDataButton.addEventListener('click', () => {
+    // VARIABLES DE LOS DATOS QUE INGRESES AL MODAL
+    const nameInput = document.querySelector('#patient-name');
+    const ageInput = document.querySelector('#patient-age');
+    const sexInput = document.querySelector('#patient_sex');
+    const phoneInput = document.querySelector('#patient-phone');
+    const illnessInput = document.querySelector('#patient-illness');
+    const medicineInput = document.querySelector('#patient-medicine');
+    const expedientInput = document.querySelector('#patient-expedient-number');
+    const allergiesInput = document.querySelector('#patient-allergies');
 
+    // PASAR LOS DATOS DEL LOS INPUT DEL MODAL A LA INFORMACIÓN FUERA DEL MODAL
+    infoName.textContent = nameInput.value;
+    infoAge.textContent = ageInput.value;
+    infoSex.textContent = sexInput.value;
+    infoPhone.textContent = phoneInput.value;
+    infoIllness.textContent = illnessInput.value;
+    infoMedicine.textContent = medicineInput.value;
+    infoExpedient.textContent = expedientInput.value;
+    infoAllergies.textContent = allergiesInput.value;
+
+    // CERRAR MODAL
+    addPatientModal.setAttribute('style', 'display: none;');
+});
