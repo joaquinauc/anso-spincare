@@ -18,4 +18,15 @@ class AddUserForm(FlaskForm):
     user_second_last_name = StringField('Second Last Name')
     user_password = PasswordField('Password', validators=[DataRequired()])
     user_role = StringField('Role', validators=[DataRequired()])
+
+
+class AddPatientForm(FlaskForm):
+    user_name = StringField('Name', validators=[DataRequired()])
+    user_age = StringField('Age', validators=[DataRequired()])
+    user_sex = StringField('Sex', validators=[DataRequired()])
+    user_phone_number = StringField('Phone Number', validators=[DataRequired()])
+    user_illness = StringField('Illness', validators=[DataRequired()])
+    user_medicine = StringField('Medicine', validators=[DataRequired()])
+    user_expedient_number = StringField('Expedient Number', validators=[DataRequired()])
+    user_allergies = StringField('Allergies', validators=[DataRequired()])
     
