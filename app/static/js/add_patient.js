@@ -73,3 +73,46 @@ saveFormDataButton.addEventListener('click', () => {
     // CERRAR MODAL
     addPatientModal.setAttribute('style', 'display: none;');
 });
+
+addPatientButton.addEventListener("click", async function (e) {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append('patient_name', infoName.textContent);
+    formData.append('patient_age', infoAge.textContent);
+    formData.append('patient_sex', infoSex.textContent);
+    formData.append('patient_phone_number', infoPhone.textContent);
+    formData.append('patient_illness', infoIllness.textContent);
+    formData.append('patient_medicine', infoMedicine.textContent);
+    formData.append('patient_expedient_number', infoExpedient.textContent);
+    formData.append('patient_allergies', infoAllergies.textContent);
+    // Necesita el CSRF TOKEN para que funcione el forms de Flask y pueda hacer la validación
+    formData.append(
+        'csrf_token',
+        document.querySelector('[name=csrf_token]').value
+    );
+
+    try {
+        const response = await fetch('/api/add_patient', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Cache-Control': 'no-store', // Evita caché en la petición
+            },
+        });
+
+        const result = await response.json();
+        console.log(result);
+
+        if (result.success) {
+            // 3. Redirección que no deja historial
+            window.location.replace(result.redirect);
+        } else {
+            alert('Algo salió mal.');
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Error al conectar con el servidor");
+    }
+});
+
