@@ -2,7 +2,7 @@ from flask import send_from_directory, request, jsonify, render_template, url_fo
 from flask_login import current_user, login_user, logout_user, login_required
 from app import app, db
 from app.models import User
-from app.forms import LoginForm, AddUserForm
+from app.forms import LoginForm, AddUserForm, AddPatientForm
 from functools import wraps
 import sqlalchemy as sa
 
@@ -92,4 +92,5 @@ def add_user_api():
 
 @app.route('/add_patient', methods=['GET', 'POST'])
 def add_patient():
-    return render_template('add_patient.html')
+    form = AddPatientForm()
+    return render_template('add_patient.html', form=form)
