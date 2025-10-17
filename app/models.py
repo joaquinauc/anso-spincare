@@ -27,10 +27,10 @@ class Patient(db.Model):
     name: so.Mapped[str] = so.mapped_column(sa.String(64), index=True)
     age: so.Mapped[int] = so.mapped_column(sa.Integer())
     sex: so.Mapped[str] = so.mapped_column(sa.String(16))
-    phone_number: so.Mapped[int] = so.mapped_column(sa.Integer())
+    phone_number: so.Mapped[str] = so.mapped_column(sa.String(16))
     illness: so.Mapped[str] = so.mapped_column(sa.String(64), index=True)
     medicine: so.Mapped[str] = so.mapped_column(sa.String(256), index=True)
-    expedient_number: so.Mapped[int] = so.mapped_column(sa.Integer(), index=True)
+    expedient_number: so.Mapped[int] = so.mapped_column(sa.Integer(), index=True, unique=True)
     allergies: so.Mapped[str] = so.mapped_column(sa.String(256), index=True)
 
 # Guarda user.id en la sesión
