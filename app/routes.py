@@ -1,7 +1,7 @@
 from flask import send_from_directory, request, jsonify, render_template, url_for, redirect, session
 from flask_login import current_user, login_user, logout_user, login_required
 from app import app, db
-from app.models import User
+from app.models import User, Patient
 from app.forms import LoginForm, AddUserForm, AddPatientForm
 from functools import wraps
 import sqlalchemy as sa
@@ -90,7 +90,30 @@ def add_user_api():
         return jsonify({'success': True, 'redirect': url_for('dashboard')})
     return jsonify({'success': False, 'errors': form.errors})
 
+
 @app.route('/add_patient', methods=['GET', 'POST'])
 def add_patient():
     form = AddPatientForm()
     return render_template('add_patient.html', form=form)
+
+
+@app.route('/api/add_patient', methods=['GET', 'POST'])
+def add_patient_api():
+    form = AddPatientForm()
+
+    if form.validate_on_submit():
+        patient = Patient(
+            name=form.patient_name.data,
+            age=form.patient_age.data,
+            sex=form.patient_sex.data,
+            phone_number=form.patient_phone_number.data,
+            illness=form.patient_illness.data,
+            medicine=form.patient_medicine.data,
+            expedient_number=form.patient_expedient_number,
+            allergies=form.patient_allergies.data
+            )
+        db.session.add(patient)
+        db.session.commit()
+
+        return jsonify({'success': True, 'redirect': url_for('dashboard')})
+    return jsonify({'success': False, 'errors': form.errors})
