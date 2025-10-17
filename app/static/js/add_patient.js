@@ -38,3 +38,14 @@ window.addEventListener('click', event => {
     }
 });
 
+// VARIABLES DE LOS DATOS QUE SE VEN FUERA DEL MODAL
+const infoName = document.querySelector('#patient-show-name');
+const infoAge = document.querySelector('#patient-show-age');
+const infoSex = document.querySelector('#patient-show-sex');
+const infoPhone = document.querySelector('#patient-show-phone');
+const infoIllness = document.querySelector('#patient-show-illness');
+const infoMedicine = document.querySelector('#patient-show-illness');
+const infoExpedient = document.querySelector('#patient-show-illness');
+const infoAllergies = document.querySelector('#patient-show-illness');
+
+
