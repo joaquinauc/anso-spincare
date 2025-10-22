@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register Appointment</title>
+    <link rel="stylesheet" href="../static/css/add_patient.css" />
+  </head>
+  <body>
+    <header>
+      <img
+        src="../static/media/spincare_logo.png"
+        alt="Logo featuring stylized handwritten AnSo 
+      and modern SpinCare text with By Sofia and Ana Carla below, accompanied by a detailed illustration 
+      of a spine on a clean white background, conveying a professional and caring tone"
+      />
+    </header>
+
+    <div id="main-container">
+      <h1>Registro de cita</h1>
+      <form id="appointment-form">
+        <div class="form-group">
+          <label for="patient">Paciente:</label>
+          <input type="text" id="patient" name="patient" />
+        </div>
+
+        <div class="form-group">
+          <label for="doctor">Doctor/Terapeuta:</label>
+          <input type="text" id="doctor" name="doctor" />
+        </div>
+
+        <div class="form-group">
+          <label for="illness">Padecimiento:</label>
+          <input type="text" id="illness" name="illness" />
+        </div>
+
+        <div class="form-group">
+          <label for="observations">Observaciones:</label>
+          <input type="text" id="observations" name="observations" />
+        </div>
+
+        <button type="submit" id="saveFormDataBtn">Agendar cita</button>
+      </form>
+    </div>
+    
+    <script src="../static/js/add_patient.js"></script>
+  </body>
+</html>
